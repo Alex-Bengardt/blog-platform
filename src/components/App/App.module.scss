@@ -1,0 +1,39 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+html {
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.header {
+  display: flex;
+  background: #fff;
+  padding: 0 22px;
+  height: 80px;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1440px;
+  }
+
+  &__title {
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.55rem;
+  }
+}
+
+.footer {
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+}

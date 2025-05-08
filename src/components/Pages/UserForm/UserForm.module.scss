@@ -1,0 +1,118 @@
+.user-form {
+  margin: 60px auto 0;
+  padding: 48px 32px;
+  width: 380px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+  box-shadow:
+    0px 0.6088px 2.93329px 0px rgba(0, 0, 0, 0.02),
+    0px 1.46302px 7.04911px 0px rgba(0, 0, 0, 0.03),
+    0px 2.75474px 13.27285px 0px rgba(0, 0, 0, 0.04),
+    0px 4.91399px 23.67649px 0px rgba(0, 0, 0, 0.04),
+    0px 9.19107px 44.28427px 0px rgba(0, 0, 0, 0.05),
+    0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #262626;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4rem;
+  }
+
+  &__text {
+    color: #262626;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.57rem;
+  }
+
+  &__input {
+    height: 40px;
+    color: rgba(0, 0, 0, 0.75);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5rem;
+  }
+
+  &__divider {
+    margin: 24px 0 8px;
+  }
+
+  &__agree {
+    color: #595959;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4rem;
+  }
+
+  &__button {
+    height: 40px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5rem;
+  }
+
+  &__info {
+    color: #8c8c8c;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.66rem;
+  }
+
+  &__signin {
+    color: #1890ff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.66rem;
+  }
+
+  &__error {
+    color: #f5222d;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.57rem;
+  }
+
+  &__errBorder {
+    border-color: #f5222d;
+  }
+}
+
+.submitBtn {
+  margin: 20px 0 8px;
+  width: 320px;
+}
+
+.tagBtn {
+  padding: 0 36px;
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.tag {
+  display: flex;
+  align-items: flex-end;
+  column-gap: 18px;
+
+  &__input {
+    width: 300px;
+    margin-bottom: 0;
+  }
+}
