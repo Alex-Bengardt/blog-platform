@@ -206,11 +206,17 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
   );
 
   useEffect(() => {
-    if (isArticlePage && isPreview) {
-      dispatch(toggleArticlePreview(false));
-      dispatch(togglePagination(false));
+    if (isArticlePage) {
+      if (!articleData && slug) {
+        dispatch(fetchAnArticle(slug));
+      } else if (articleData && slug !== articleData.slug) {
+        dispatch(fetchAnArticle(slug));
+      } else {
+        dispatch(toggleArticlePreview(false));
+        dispatch(togglePagination(false));
+      }
     }
-  }, [isArticlePage, isPreview, dispatch]);
+  }, [slug, isArticlePage, articleData, dispatch]);
 
   return (
     <>{articleStatus === FS.LOADING || listStatus === FS.LOADING ? cardPlaceholder : card}</>

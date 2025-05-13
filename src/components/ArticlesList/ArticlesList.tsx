@@ -3,6 +3,7 @@ import { Space } from 'antd';
 
 import Article from '../Pages/Article';
 import { toggleArticlePreview, togglePagination } from '../../store/UtilitySlice';
+import { fetchArticles } from '../../services/RealWorld.api';
 import { useAppDispatch, useStateSelector } from '../../hooks';
 
 import { IArticle } from '../../types/app.types';
@@ -21,6 +22,10 @@ const ArticlesList: React.FC<IArticleList> = ({ preview }) => {
       dispatch(toggleArticlePreview(true));
     }
   }, [preview, isArticlesList, dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchArticles({ limit: 10, offset: 0 }));
+  }, [dispatch]);
 
   const renderArticles = articlesList?.map((article: IArticle) => {
     const slug = article.slug;

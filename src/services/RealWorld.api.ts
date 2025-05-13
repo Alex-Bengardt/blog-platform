@@ -46,7 +46,7 @@ const requestApi = async (
 
 export const fetchAnArticle = createAsyncThunk(
   'async/fetchAnArticle',
-  async (slug: string) => {
+  async (slug: string | undefined) => {
     return await requestApi(`/articles/${slug}`);
   }
 );

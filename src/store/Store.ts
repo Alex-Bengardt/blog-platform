@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'MyBlog',
   storage,
+  whitelist: ['user'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

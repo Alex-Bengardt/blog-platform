@@ -39,7 +39,7 @@ const ArticleCreate: React.FC<IEditArticleProps> = ({ editMode }) => {
     mode: 'onBlur',
   });
 
-  const onSubmit = (data: ICreateArticleProps) => {
+  const onSubmit = async (data: ICreateArticleProps) => {
     const { title, description, body, tags } = data;
 
     const tagList = tags?.reduce((acc: string[], tag) => {
@@ -49,25 +49,34 @@ const ArticleCreate: React.FC<IEditArticleProps> = ({ editMode }) => {
       return acc;
     }, []);
 
-    if (currentPage.pathname === '/new-article') {
-      if (title && description && body) {
-        dispatch(createArticle({ title, description, body, tagList }));
-        dispatch(toggleArticlePreview(true));
-        dispatch(setCurrentPageNumber(1));
-        navigate('/articles');
-      }
-    }
+    try {
+      if (currentPage.pathname === '/new-article') {
+        if (title && description && body) {
+          const response = await dispatch(
+            createArticle({ title, description, body, tagList })
+          ).unwrap();
 
-    if (currentPage.pathname !== '/new-article') {
-      if (slug) {
-        dispatch(
-          updateArticle({
-            article: { title, description, body, tagList },
-            slug,
-          })
-        );
-        navigate(`/articles/${slug}`);
+          const createdSlug = response.data.article.slug;
+
+          dispatch(toggleArticlePreview(true));
+          dispatch(setCurrentPageNumber(1));
+
+          navigate(`/articles/${createdSlug}`, { replace: true });
+        }
+      } else {
+        if (slug) {
+          await dispatch(
+            updateArticle({
+              article: { title, description, body, tagList },
+              slug,
+            })
+          ).unwrap();
+
+          navigate(`/articles/${slug}`);
+        }
       }
+    } catch (err) {
+      console.error('Ошибка при создании/редактировании статьи:', err);
     }
   };
 
